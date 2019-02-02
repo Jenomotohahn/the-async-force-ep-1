@@ -1,3 +1,19 @@
+//Cleaner way to do the functions.
+// const request = (url, callback) => {
+//   const oReq = new XMLHttpRequest();
+//   oReq.addEventListener("load", function(data) {
+//     const resData = JSON.parse(data.target.responseText);
+//     callback(resData);
+//   });
+//   oReq.open("GET", url);
+//   oReq.send();
+// };
+
+// const xhr4 = request("https://swapi.co/api/people/4/", function(data) {
+//   document.getElementById("person4Name").innerHTML = data.name;
+//   console.log(data);
+// });
+
 const xhr4 = new XMLHttpRequest();
 
 xhr4.addEventListener("load", function() {
@@ -71,3 +87,15 @@ xhrfilm.addEventListener("load", function() {
 });
 xhrfilm.open("GET", "https://swapi.co/api/films/");
 xhrfilm.send();
+
+// example:
+// request('https://swapi.co/api/people/1', function (data) {
+//     console.log('data', data);
+//     // DOM MANIPULATING CODE HERE
+//     data.films.forEach(function (url) {
+//         request(url, function (data) {
+//             console.log('inner Data', data);
+//             // OTHER DOM MANOIPULATING CODE
+//         });
+//     });
+// });
